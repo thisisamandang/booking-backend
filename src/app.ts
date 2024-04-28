@@ -29,7 +29,7 @@ app.use("/", userRoutes);
 app.use("/", eventRoutes);
 app.use("/s3", s3Routes);
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 sequelize
   .sync()
