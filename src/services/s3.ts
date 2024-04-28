@@ -33,7 +33,6 @@ export function uploadFile(
     Key: fileName,
     ContentType: mimetype,
   };
-
   return s3Client.send(new PutObjectCommand(uploadParams));
 }
 
