@@ -50,7 +50,7 @@ cp .env.example .env
 Post Event
 Description: This API endpoint is used to create a new event.
 
-URL: /events
+URL: /addEvents
 
 Method: POST
 
@@ -71,7 +71,7 @@ Success Response:
 Status Code: 200 OK
 Body:
 json
-
+```
 {
   "message": "Event added",
   "event": {
@@ -81,6 +81,7 @@ json
     "thumbnail": "event_thumbnail_url"
   }
 }
+```
 Error Response:
 Status Code: 500 Internal Server Error
 Body:
@@ -88,11 +89,10 @@ Body:
 {
   "error": "Internal server error"
 }
-```
 Get Events
 Description: This API endpoint is used to retrieve a list of events.
 
-URL: /events
+URL: /getEvents
 
 Method: GET
 
@@ -104,7 +104,7 @@ Response:
 Success Response:
 Status Code: 200 OK
 Body:
-
+```
 {
   "events": [
     {
@@ -113,14 +113,8 @@ Body:
       "availableSlots": 100,
       "thumbnail": "event_thumbnail_url"
     },
-    {
-      "title": "Another Event",
-      "description": "Another Description",
-      "availableSlots": 50,
-      "thumbnail": "another_event_thumbnail_url"
-    }
-  ]
 }
+```
 Error Response:
 Status Code: 500 Internal Server Error
 Body:
@@ -129,10 +123,11 @@ Body:
 {
   "error": "Internal server error"
 }
+
 Update Event
 Description: This API endpoint is used to update an existing event.
 
-URL: /events/:id
+URL: /updateEvent/:id
 
 Method: PUT
 
@@ -144,6 +139,7 @@ Request Body:
   "availableSlots": 120,
   "thumbnail": "updated_thumbnail_url"
 }
+
 ```
 Response:
 
@@ -170,7 +166,7 @@ Body:
 Delete Event
 Description: This API endpoint is used to delete an event.
 
-URL: /events/:id
+URL: /deleteEvent/:id
 
 Method: DELETE
 
@@ -179,10 +175,11 @@ Response:
 Success Response:
 Status Code: 200 OK
 Body:
-
+```
 {
   "message": "Event deleted successfully"
 }
+```
 Error Response:
 Status Code: 500 Internal Server Error
 Body:
