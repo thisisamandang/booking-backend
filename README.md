@@ -15,6 +15,14 @@ yarn install
 
 cp .env.example .env
 
+Mock data to test api
+```
+1. open workbench
+2. File > Open SQL Script grouple_db.sql from the repository
+3. Run the script
+4. Done
+```
+
 ### Signup
 
 **Description:** This API endpoint is used for user registration.
