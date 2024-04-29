@@ -47,7 +47,7 @@ cp .env.example .env
 ```
 
 
-Post Event
+### New Event
 Description: This API endpoint is used to create a new event.
 
 URL: /addEvents
@@ -89,7 +89,7 @@ Body:
 {
   "error": "Internal server error"
 }
-Get Events
+### Get Events
 Description: This API endpoint is used to retrieve a list of events.
 
 URL: /getEvents
@@ -115,16 +115,8 @@ Body:
     },
 }
 ```
-Error Response:
-Status Code: 500 Internal Server Error
-Body:
 
-
-{
-  "error": "Internal server error"
-}
-
-Update Event
+### Update Event
 Description: This API endpoint is used to update an existing event.
 
 URL: /updateEvent/:id
@@ -146,7 +138,7 @@ Response:
 Success Response:
 Status Code: 200 OK
 Body:
-
+```
 {
   "message": "Event updated successfully",
   "event": {
@@ -156,14 +148,8 @@ Body:
     "thumbnail": "updated_thumbnail_url"
   }
 }
-Error Response:
-Status Code: 500 Internal Server Error
-Body:
-
-{
-  "error": "Internal server error"
-}
-Delete Event
+```
+### Delete Event
 Description: This API endpoint is used to delete an event.
 
 URL: /deleteEvent/:id
@@ -180,10 +166,71 @@ Body:
   "message": "Event deleted successfully"
 }
 ```
-Error Response:
-Status Code: 500 Internal Server Error
-Body:
 
-{
-  "error": "Internal server error"
-}
+### Upload to S3
+
+**Description:** This API endpoint is used to upload an image to Amazon S3.
+
+**URL:** `s3/upload`
+
+**Method:** `POST`
+
+**Request Body:**
+- `email`: Email of the user
+- `name`: Name of the user
+
+**Request File:**
+- Image file to be uploaded
+
+**Response:**
+- Success Response:
+  - Status Code: `200 OK`
+  - Body:
+    ```json
+    {
+      "message": "Image uploaded successfully"
+    }
+    ```
+
+---
+
+### Retrieve from S3
+
+**Description:** This API endpoint is used to retrieve images stored in Amazon S3.
+
+**URL:** `s3/get`
+
+**Method:** `GET`
+
+**Response:**
+- Success Response:
+  - Status Code: `200 OK`
+  - Body:
+    ```json
+    {
+      "data": [
+        {
+          "item": {
+            "imageName": "userImage123456789.jpg",
+            "email": "user@example.com",
+            "name": "John Doe",
+            "createdAt": "2024-04-29T12:00:00Z"
+          },
+          "signedUrl": "https://s3.amazonaws.com/bucket/userImage123456789.jpg"
+        },
+        {
+          "item": {
+            "imageName": "userImage987654321.jpg",
+            "email": "another_user@example.com",
+            "name": "Jane Doe",
+            "createdAt": "2024-04-28T12:00:00Z"
+          },
+          "signedUrl": "https://s3.amazonaws.com/bucket/userImage987654321.jpg"
+        }
+      ]
+    }
+    ```
+
+---
+
+
